@@ -1,1 +1,2 @@
 # Project2
+This is a repository for Project 2 for my software engineering class. I have selected the project of creating a smart Document analyzer. In order to complete this project, I will first need to be able to upload any supported document type. The document analyzer will then run on the file, extract all text and using NLP it will be able to understand the text, summerize it, and lastly provide a sentamint analysis.
