@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  title: Output Generator API
+  description: API for generating outputs from processed content
+  version: "1.0.0"
+paths:
+  /generate-summary:
+    post:
+      summary: Generate summary of a document
+      operationId: generateSummary
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                documentId:
+                  type: string
+      responses:
+        '200':
+          description: Summary generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  summary:
+                    type: string
+  /tag-keywords:
+    post:
+      summary: Tag document with keywords
+      operationId: tagKeywords
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                documentId:
+                  type: string
+      responses:
+        '200':
+          description: Document tagged with keywords successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keywords:
+                    type: array
+                    items:
+                      type: string
+  /sentiment-analysis:
+    post:
+      summary: Perform sentiment analysis on a document
+      operationId: sentimentAnalysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                documentId:
+                  type: string
+      responses:
+        '200':
+          description: Sentiment analysis completed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sentiment:
+                    type: object
+                    properties:
+                      positive:
+                        type: array
+                        items:
+                          type: string
+                      neutral:
+                        type: array
+                        items:
+                          type: string
+                      negative:
+                        type: array
+                        items:
+                          type: string

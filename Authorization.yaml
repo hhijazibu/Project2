@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: Authorization and Authentication API
+  description: API for managing user authentication and authorization
+  version: "1.0.0"
+paths:
+  /login:
+    post:
+      summary: Authenticate user and return a token
+      operationId: loginUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: User authenticated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+  /verify:
+    post:
+      summary: Verify token validity
+      operationId: verifyToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+      responses:
+        '200':
+          description: Token is valid
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean

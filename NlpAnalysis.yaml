@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: NLP Analysis API
+  version: 1.0.0
+  description: API for performing NLP analysis on uploaded documents.
+servers:
+  - url: 'https://localhost.com:5000'
+paths:
+  /analyze:
+    post:
+      summary: Analyze document
+      description: Performs NLP analysis on the uploaded document, including keyword extraction, sentiment analysis, and summarization.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                documentId:
+                  type: string
+                  description: The ID of the document to be analyzed.
+      responses:
+        '200':
+          description: Analysis completed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keywords:
+                    type: array
+                    items:
+                      type: string
+                  sentiment:
+                    type: object
+                    properties:
+                      positive:
+                        type: array
+                        items:
+                          type: string
+                      neutral:
+                        type: array
+                        items:
+                          type: string
+                      negative:
+                        type: array
+                        items:
+                          type: string
+                  summary:
+                    type: string
+                  entities:
+                    type: object
+                    properties:
+                      names:
+                        type: array
+                        items:
+                          type: string
+                      locations:
+                        type: array
+                        items:
+                          type: string
+                      institutions:
+                        type: array
+                        items:
+                          type: string
+                      addresses:
+                        type: array
+                        items:
+                          type: string

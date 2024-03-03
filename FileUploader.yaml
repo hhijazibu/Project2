@@ -1,0 +1,38 @@
+openapi: 3.0.
+info:
+  title: Secure File Uploader API
+  version: 1.0.0
+  description: API for securely uploading documents and files.
+servers:
+  - url: 'https://localhost.com:5000'
+paths:
+  /upload:
+    post:
+      summary: Upload a file
+      description: Allows for the uploading of a document or file, ensuring secure upload.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                fileType:
+                  type: string
+                  description: The type of file being uploaded (PDF, image, CSV, DOC, etc.)
+      responses:
+        '200':
+          description: File uploaded successfully
+        '401':
+          description: Unauthorized
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+3

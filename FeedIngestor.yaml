@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: Feed Ingestor API
+  description: API for ingesting feeds from the web
+  version: "1.0.0"
+paths:
+  /ingest-content:
+    post:
+      summary: Ingest content from specified web source
+      operationId: ingestContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceUrl:
+                  type: string
+      responses:
+        '200':
+          description: Content ingested successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
