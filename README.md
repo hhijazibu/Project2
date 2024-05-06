@@ -14,3 +14,5 @@ After logging in the user can then upload a document (PDF or Image). The file wh
 
 # DEMO VIDEO
 https://drive.google.com/file/d/1NSwXZMqkERTMoXoD0tncL5OJLAEKN4N9/view?usp=sharing
+
+# Files:
