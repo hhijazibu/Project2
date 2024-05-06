@@ -16,3 +16,6 @@ After logging in the user can then upload a document (PDF or Image). The file wh
 https://drive.google.com/file/d/1NSwXZMqkERTMoXoD0tncL5OJLAEKN4N9/view?usp=sharing
 
 # Files:
+The Templates files contain all front end HTML code
+The Static Files Contains all front end CSS Styling and JavaScript logic handling
+
