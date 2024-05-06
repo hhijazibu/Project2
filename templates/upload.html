@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Analyze Document</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/upload.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload and Analyze Document</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" required><br>
+            <button type="submit">Upload and Analyze</button>
+        </form>
+        {% if sentiment %}
+        <h2>Sentiment Analysis Results:</h2>
+        <div class="sentiment-results">
+            <p><strong>Positive Score:</strong> {{ sentiment['pos'] }}</p>
+            <p><strong>Negative Score:</strong> {{ sentiment['neg'] }}</p>
+            <p><strong>Neutral Score:</strong> {{ sentiment['neu'] }}</p>
+            <p><strong>Compound Score:</strong> {{ sentiment['compound'] }}</p>
+        </div>
+        <h2>Extracted Text:</h2>
+        <div class="extracted-text">
+            <p>{{ text }}</p>
+        </div>
+        <h2>Summary of the Document:</h2>
+        <div class="document-summary">
+            <p>{{ summary }}</p>
+        </div>
+        {% if keywords %}
+        <h2>Keywords:</h2>
+        <div class="keywords">
+            <ul>
+            {% for keyword in keywords %}
+                <li><a href="https://en.wikipedia.org/wiki/{{ keyword|replace(' ', '_') }}" target="_blank">{{ keyword }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+    <script>
+        // Example JavaScript for additional interactive effects (optional)
+        document.querySelectorAll('input[type="file"], button').forEach(element => {
+            element.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            element.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

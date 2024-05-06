@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analysis App</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Text Analysis App</h1>
+
+    <h2>Register</h2>
+    <form id="registerForm">
+        Username: <input type="text" id="usernameReg"><br>
+        Password: <input type="password" id="passwordReg"><br>
+        <button type="button" onclick="register()">Register</button>
+    </form>
+
+    <h2>Login</h2>
+    <form id="loginForm">
+        Username: <input type="text" id="usernameLog"><br>
+        Password: <input type="password" id="passwordLog"><br>
+        <button type="button" onclick="login()">Login</button>
+    </form>
+
+    <h2>Upload File</h2>
+    <form id="uploadForm">
+        <input type="file" id="fileUpload"><br>
+        <button type="button" onclick="uploadFile()">Upload File</button>
+    </form>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
